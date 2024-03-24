@@ -5,7 +5,7 @@ import { Col, Row, Space } from "antd";
 const Experience = () => {
   return (
     <div>
-      <h1>Resume</h1>
+      <h1 style={{ color: "#7127ba" }}>Resume</h1>
       <Row>
         <Space direction="vertical" size={"large"}>
           <Col xs={24} md={{ span: 12, offset: 3 }}>

@@ -1,38 +1,71 @@
 import { Col, Image, Layout, Row } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import hero from "../../assets/Hero.png";
+import "./hero.css";
+
 const layoutStyle = {
-  "min-height": "80vh",
-  marginTop: "10rem",
+  minHeight: "80vh",
+  marginTop: "5rem",
 };
+
 const Hero = () => {
+  const [text, setText] = useState("Software Engineer");
+
+  useEffect(() => {
+    const textLoad = () => {
+      setTimeout(() => {
+        setText("Fullstack Developer");
+      }, 4000);
+      setTimeout(() => {
+        setText("Website Developer");
+      }, 8000);
+    };
+
+    const interval = setInterval(textLoad, 8000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <div style={layoutStyle}>
       <Row>
         <Col
-          md={12}
+          md={10}
           style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            height: "80vh",
           }}
         >
           <div style={{ width: "70%" }}>
-            <h1>Hello there👋</h1>
-            <h1>I'm Dagmawi Misker</h1>
-            <p>
-              I am a computer science student with an analytical mind and a
-              passion for problem solving. I take my education seriously, and
-              strive to learn as much as I can about the ever-changing field of
-              computer science. I love to challenge myself with difficult
-              concepts and tasks, especially when doing so helps me to expand my
-              skill set.
-            </p>
+            <h1>Hello👋🏻</h1>
+            <h1>
+              <span style={{ color: "#7127BA" }}>Dagmawi Misker, here</span>
+            </h1>
+
+            <div className="container">
+              <span className="text first-text">I'm a </span> &nbsp;
+              <span className="text sec-text">{text}</span>
+            </div>
           </div>
         </Col>
-        <Col md={12}>
-          <Image src={hero} width={"32rem"} preview={false} />
+        <Col
+          md={14}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div className="gooey">
+            <div className="image-container">
+              <Image src={hero} preview={false} />
+            </div>
+          </div>
         </Col>
       </Row>
     </div>

@@ -1,18 +1,19 @@
 import React from "react";
 import { Col, Dropdown, Image, Layout, Menu, Row } from "antd";
-import logo from "../../assets/logo.png"; // Import the logo image
+import logo from "../../assets/Logo.png";
 import "./navbar.css";
 
 const headerStyle = {
-  height: 64,
-  margin: "2rem",
-  padding: "0.5rem",
+  height: "5rem",
   borderRadius: "3rem",
-  position: "fixed", // Set the position to fixed
-  top: 0, // Position at the top
-  left: 0, // Position at the left
-  right: 0, // Position at the right
-  zIndex: 1000, // Set a high z-index to make sure it's on top
+  margin: "0 2rem",
+  padding: 0,
+  top: " 4rem",
+  position: "fixed",
+  left: 0,
+  right: 0,
+  zIndex: 1000,
+  backgroundColor: "#1A0B2E",
 };
 
 const menuItems = [
@@ -26,36 +27,42 @@ const menuItems = [
 const Navbar = () => {
   const renderMenuItems = () => {
     return menuItems.map((item) => (
-      <Menu.Item key={item.key}>{item.title}</Menu.Item>
+      <Menu.Item key={item.key} style={{ color: "white" }}>
+        {item.title}
+      </Menu.Item>
     ));
   };
 
   return (
     <Layout.Header style={headerStyle}>
-      <Row justify="center" align="middle">
-        <Col flex="auto">
-          <div className="logo" style={{ textAlign: "center" }}>
+      <Row justify="space between" align="middle">
+        <Col flex="auto" style={{ paddingLeft: "0.2rem" }}>
+          <div className="logo">
             <Image
               src={logo}
-              width={"4rem"}
-              height={"4rem"}
-              style={{ borderRadius: "2rem" }}
+              width={"5rem"}
+              height={"5rem"}
+              style={{ borderRadius: "2.5rem" }}
+              preview={false}
             />
           </div>
         </Col>
         <Col flex="auto">
           <Menu
-            theme="dark"
             mode="horizontal"
             className="menu"
-            style={{ justifyContent: "center" }}
+            style={{
+              justifyContent: "center",
+              backgroundColor: "#1A0B2E",
+              color: "white",
+            }}
           >
             {renderMenuItems()}
           </Menu>
         </Col>
         <Col flex="auto">
           <Dropdown
-            overlay={<Menu>{renderMenuItems()}</Menu>}
+            menu={<Menu>{renderMenuItems()}</Menu>}
             trigger={["hover"]}
             placement="bottomRight"
             className="dropdown"

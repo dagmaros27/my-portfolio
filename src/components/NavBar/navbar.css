@@ -4,9 +4,6 @@
 .dropdown {
   display: none;
 }
-.logo {
-  margin-left: 2rem;
-}
 
 @media only screen and (max-width: 720px) {
   .menu {

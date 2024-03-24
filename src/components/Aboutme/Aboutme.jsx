@@ -2,6 +2,9 @@ import { Col, Image, Row } from "antd";
 import React from "react";
 import hero from "../../assets/Hero.png";
 import "./about.css";
+import { PiIdentificationBadgeFill } from "react-icons/pi";
+import { MdEmail } from "react-icons/md";
+import { FaMapMarkerAlt, FaUserGraduate } from "react-icons/fa";
 
 const layoutStyle = {
   "min-height": "80vh",
@@ -19,7 +22,7 @@ const Aboutme = () => {
         />
       </Col>
       <Col md={12} style={{ padding: "2rem" }}>
-        <h2>About Me</h2>
+        <h1 style={{ color: "#7127ba" }}>About Me</h1>
         <p>
           I am a computer science student with an analytical mind and a passion
           for problem solving. I take my education seriously, and strive to
@@ -28,24 +31,82 @@ const Aboutme = () => {
           especially when doing so helps me to expand my skill set.
         </p>
         <h3>Personal details</h3>
-        <Row style={{ gap: "2rem" }}>
-          <Col xs={6}>
-            <p>Name:</p>
-            <p>Email:</p>
-            <p>Residence:</p>
-            <p>City:</p>
-            <p>Degree:</p>
-            <p>Freelance:</p>
+        <Row>
+          <Col
+            span={6}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
+            <PiIdentificationBadgeFill size={24} style={{ color: "#7127ba" }} />{" "}
+            <span>Name</span>
           </Col>
-          <Col xs={6}>
+          <Col span={18}>
             <p>Dagmawi Misker</p>
-            <a>dagmawimisker@gmail.com</a>
-            <p>Ethiopia</p>
-            <p>Addis Ababa</p>
+          </Col>
+
+          <Col
+            span={6}
+            style={{
+              display: "flex",
+              alignItems: "center",
+
+              gap: "1rem",
+            }}
+          >
+            <MdEmail size={24} style={{ color: "#7127ba" }} />{" "}
+            <span>Email</span>
+          </Col>
+          <Col span={18}>
+            <p>dagmawimisker1@gmail.com</p>
+          </Col>
+
+          <Col
+            span={6}
+            style={{
+              display: "flex",
+              alignItems: "center",
+
+              gap: "1rem",
+            }}
+          >
+            <FaMapMarkerAlt size={24} style={{ color: "#7127ba" }} />{" "}
+            <span>Residence</span>
+          </Col>
+          <Col span={18}>
+            <p>Addis Ababa, Ethiopia</p>
+          </Col>
+
+          <Col
+            span={6}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
+            <FaUserGraduate size={24} style={{ color: "#7127ba" }} />{" "}
+            <span>Degree</span>
+          </Col>
+          <Col span={18}>
             <p>Bachelor in Computer Science</p>
-            <p>
-              Available on <a>Upwork</a>
-            </p>
+          </Col>
+
+          <Col
+            span={6}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
+            <PiIdentificationBadgeFill size={24} style={{ color: "#7127ba" }} />{" "}
+            <span>Freelance</span>
+          </Col>
+          <Col span={18}>
+            <p>Available in Upwork</p>
           </Col>
         </Row>
       </Col>

@@ -1,86 +1,166 @@
 import React from "react";
-import { programmingLanguages, tools } from "./skillsData.js";
 import { Col, Row, Space } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  RiReactjsFill,
+  RiJavascriptFill,
+  RiHtml5Fill,
+  RiCss3Fill,
+} from "react-icons/ri";
+import {
+  SiExpress,
+  SiMongodb,
+  SiDotnet,
+  SiMysql,
+  SiPostman,
+} from "react-icons/si";
+import { FaFigma, FaGitAlt, FaGithub, FaNode, FaPython } from "react-icons/fa";
+import { FaGolang } from "react-icons/fa6";
+import { BiLogoVisualStudio } from "react-icons/bi";
+import "./skills.css";
+
+const iconSize = 72;
+const programmingLanguages = [
+  {
+    name: "HTML",
+    icon: <RiHtml5Fill size={iconSize} />,
+  },
+  {
+    name: "CSS",
+    icon: <RiCss3Fill size={iconSize} />,
+  },
+  {
+    name: "JavaScript",
+    icon: <RiJavascriptFill size={iconSize} />,
+  },
+  {
+    name: "React Js",
+    icon: <RiReactjsFill size={iconSize} />,
+  },
+  {
+    name: "Express Js",
+    icon: <SiExpress size={iconSize} />,
+  },
+  {
+    name: "Node Js",
+    icon: <FaNode size={iconSize} />,
+  },
+  {
+    name: "Python",
+    icon: <FaPython size={iconSize} />,
+  },
+  {
+    name: "MySQL",
+    icon: <SiMysql size={iconSize} />,
+  },
+  {
+    name: "Mongo Db",
+    icon: <SiMongodb size={iconSize} />,
+  },
+  {
+    name: ".Net",
+    icon: <SiDotnet size={iconSize} />,
+  },
+  {
+    name: "Go",
+    icon: <FaGolang size={iconSize} />,
+  },
+];
+
+const tools = [
+  {
+    name: "Vs Code",
+    icon: <BiLogoVisualStudio size={iconSize} />,
+  },
+  {
+    name: "Postman",
+    icon: <SiPostman size={iconSize} />,
+  },
+  {
+    name: "Git",
+    icon: <FaGitAlt size={iconSize} />,
+  },
+  {
+    name: "Github",
+    icon: <FaGithub size={iconSize} />,
+  },
+  {
+    name: "Figma",
+    icon: <FaFigma size={iconSize} />,
+  },
+];
 
 const Skills = () => {
   return (
     <div>
-      <h2> Skillset</h2>
+      <h1 style={{ color: "#7127ba" }}>Professional Skillset</h1>
       <Row
         style={{
           marginBottom: "2rem",
+          display: "flex",
         }}
       >
-        <Space size={64} wrap>
-          {programmingLanguages.map((skill, index) => {
-            const key = `col-${index}`;
-            return (
-              <Col
-                style={{ display: "flex", flexDirection: "column" }}
-                key={key}
-                xs={{
-                  flex: "100%",
-                }}
-                sm={{
-                  flex: "50%",
-                }}
-                md={{
-                  flex: "40%",
-                }}
-                lg={{
-                  flex: "20%",
-                }}
-                xl={{
-                  flex: "10%",
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={skill.icon}
-                  style={{ width: "4rem", height: "4rem" }}
-                />
-                {skill.name}
-              </Col>
-            );
-          })}
-        </Space>
+        {programmingLanguages.map((skill, index) => {
+          const key = `col-${index}`;
+          return (
+            <Col
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                padding: "1rem",
+                margin: "1rem",
+                border: "1px solid #7127ba",
+                backgroundColor: "#11071F",
+              }}
+              flex={"40%"}
+              key={key}
+              className="card"
+            >
+              <div className="icon">{skill.icon}</div>
+              <span>
+                {" "}
+                <strong style={{ fontSize: "1rem", color: "#7127ba" }}>
+                  {skill.name}
+                </strong>
+              </span>
+            </Col>
+          );
+        })}
       </Row>
-      <Row>
-        <Space size={64} wrap>
-          {tools.map((tool, index) => {
-            const key = `col-${index}`;
-            return (
-              <Col
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-                key={key}
-                xs={{
-                  flex: "100%",
-                }}
-                sm={{
-                  flex: "50%",
-                }}
-                md={{
-                  flex: "40%",
-                }}
-                lg={{
-                  flex: "20%",
-                }}
-                xl={{
-                  flex: "10%",
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={tool.icon}
-                  style={{ width: "4rem", height: "4rem" }}
-                />
-                {tool.name}
-              </Col>
-            );
-          })}
-        </Space>
+      <h2> Tools I use</h2>
+      <Row
+        style={{
+          marginBottom: "2rem",
+          display: "flex",
+        }}
+      >
+        {tools.map((skill, index) => {
+          const key = `col-${index}`;
+          return (
+            <Col
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                padding: "1rem",
+                margin: "1rem",
+                border: "1px solid #7127ba",
+                backgroundColor: "#11071F",
+              }}
+              span={12}
+              key={key}
+              className="card"
+            >
+              <div className="icon">{skill.icon}</div>
+              <span>
+                {" "}
+                <strong style={{ fontSize: "1rem", color: "#7127ba" }}>
+                  {skill.name}
+                </strong>
+              </span>
+            </Col>
+          );
+        })}
       </Row>
     </div>
   );
