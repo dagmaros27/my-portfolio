@@ -7,12 +7,13 @@ const Footer = () => {
     <Layout.Footer
       style={{
         padding: "1rem",
-        backgroundColor: "#909090",
+        backgroundColor: "#000000",
+        color: "white",
         display: "flex",
         justifyContent: "center",
       }}
     >
-      <p>Copyright &copy; Dagmawi Misker {date.getFullYear()}</p>
+      <p>Copyright &copy; {date.getFullYear()} Dagmawi Misker </p>
     </Layout.Footer>
   );
 };

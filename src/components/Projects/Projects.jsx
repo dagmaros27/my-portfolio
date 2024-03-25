@@ -1,7 +1,6 @@
 import { Col, Row } from "antd";
 import React from "react";
 import ProjectCard from "./ProjectCard";
-
 const layoutStyle = {
   "min-height": "80vh",
   padding: "2rem",
@@ -10,24 +9,27 @@ const layoutStyle = {
 const Projects = () => {
   return (
     <div style={layoutStyle}>
-      <h1>Projects</h1>
-      <Row>
-        <Col xs={24} md={8}>
+      <h1 style={{ color: "#7127ba" }}>Projects</h1>
+      <Row
+        className="projects"
+        style={{ display: "flex", justifyContent: "center", gap: "2rem" }}
+      >
+        <Col flex={"30%"}>
           <ProjectCard />
         </Col>
-        <Col xs={24} md={8}>
+        <Col flex={"30%"}>
           <ProjectCard />
         </Col>
-        <Col xs={24} md={8}>
+        <Col flex={"30%"}>
           <ProjectCard />
         </Col>
-        <Col xs={24} md={8}>
+        <Col flex={"30%"}>
           <ProjectCard />
         </Col>
-        <Col xs={24} md={8}>
+        <Col flex={"30%"}>
           <ProjectCard />
         </Col>
-        <Col xs={24} md={8}>
+        <Col flex={"30%"}>
           <ProjectCard />
         </Col>
       </Row>

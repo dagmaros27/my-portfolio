@@ -33,7 +33,7 @@ const Aboutme = () => {
         <h3>Personal details</h3>
         <Row>
           <Col
-            span={6}
+            span={12}
             style={{
               display: "flex",
               alignItems: "center",
@@ -43,7 +43,7 @@ const Aboutme = () => {
             <PiIdentificationBadgeFill size={24} style={{ color: "#7127ba" }} />{" "}
             <span>Name</span>
           </Col>
-          <Col span={18}>
+          <Col span={12}>
             <p>Dagmawi Misker</p>
           </Col>
 

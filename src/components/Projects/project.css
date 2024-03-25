@@ -1,0 +1,63 @@
+.tailwind-card {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  background-color: #7127ba;
+  color: white;
+  transition-duration: 500ms;
+  cursor: pointer;
+}
+
+.tailwind-card:hover {
+  transition-duration: 700ms;
+}
+
+.tailwind-card-image {
+  max-width: 100%;
+  height: 288px;
+  background-color: #7127ba;
+  color: white;
+}
+
+.tailwind-card-content {
+  position: absolute;
+  background-color: #7127ba;
+  bottom: -164px;
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition-duration: 500ms;
+}
+
+.tailwind-card:hover .tailwind-card-content {
+  bottom: 0;
+  transition-duration: 600ms;
+}
+
+.tailwind-card-label {
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.tailwind-card-buttons {
+  display: flex;
+  gap: 12px;
+  margin-right: 24px;
+}
+
+.tailwind-card-title {
+  color: #11071f;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.tailwind-card-description {
+  color: white;
+}
