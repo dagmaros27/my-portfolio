@@ -16,6 +16,7 @@ const Contact = () => {
       <h1 style={{ color: "#7127ba" }}>Contact me</h1>
       <Row>
         <Col span={12}>
+          <h3 style={{ marginTop: "0" }}>Contact Information</h3>
           <Row>
             <Col
               span={8}
@@ -136,6 +137,7 @@ const Contact = () => {
           </Row>
         </Col>
         <Col md={12}>
+          <h3 style={{ marginTop: "0" }}>Send me a message</h3>
           <Form>
             <Row style={{ gap: "2rem" }}>
               <Col md={10}>

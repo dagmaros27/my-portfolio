@@ -7,13 +7,8 @@ const headerStyle = {
   height: "5rem",
   borderRadius: "3rem",
   margin: "0 2rem",
+  marginTop: "3rem",
   padding: 0,
-  top: " 4rem",
-  position: "fixed",
-  left: 0,
-  right: 0,
-  zIndex: 1000,
-  backgroundColor: "#1A0B2E",
 };
 
 const menuItems = [
@@ -34,44 +29,46 @@ const Navbar = () => {
   };
 
   return (
-    <Layout.Header style={headerStyle}>
-      <Row justify="space between" align="middle">
-        <Col flex="auto" style={{ paddingLeft: "0.2rem" }}>
-          <div className="logo">
-            <Image
-              src={logo}
-              width={"5rem"}
-              height={"5rem"}
-              style={{ borderRadius: "2.5rem" }}
-              preview={false}
-            />
-          </div>
-        </Col>
-        <Col flex="auto">
-          <Menu
-            mode="horizontal"
-            className="menu"
-            style={{
-              justifyContent: "center",
-              backgroundColor: "#1A0B2E",
-              color: "white",
-            }}
-          >
-            {renderMenuItems()}
-          </Menu>
-        </Col>
-        <Col flex="auto">
-          <Dropdown
-            menu={<Menu>{renderMenuItems()}</Menu>}
-            trigger={["hover"]}
-            placement="bottomRight"
-            className="dropdown"
-          >
-            <span style={{ color: "white" }}>Menu</span>
-          </Dropdown>
-        </Col>
-      </Row>
-    </Layout.Header>
+    <div className="header-wrapper">
+      <Layout.Header className="header" style={headerStyle}>
+        <Row justify="space between" align="middle">
+          <Col flex="auto" style={{ paddingLeft: "0.2rem" }}>
+            <div className="logo">
+              <Image
+                src={logo}
+                width={"5rem"}
+                height={"5rem"}
+                style={{ borderRadius: "2.5rem" }}
+                preview={false}
+              />
+            </div>
+          </Col>
+          <Col flex="auto">
+            <Menu
+              mode="horizontal"
+              className="menu"
+              style={{
+                justifyContent: "center",
+                backgroundColor: "#1A0B2E",
+                color: "white",
+              }}
+            >
+              {renderMenuItems()}
+            </Menu>
+          </Col>
+          <Col flex="auto">
+            <Dropdown
+              menu={<Menu>{renderMenuItems()}</Menu>}
+              trigger={["hover"]}
+              placement="bottomRight"
+              className="dropdown"
+            >
+              <span style={{ color: "white" }}>Menu</span>
+            </Dropdown>
+          </Col>
+        </Row>
+      </Layout.Header>
+    </div>
   );
 };
 

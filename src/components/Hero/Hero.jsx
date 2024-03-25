@@ -14,14 +14,17 @@ const Hero = () => {
   useEffect(() => {
     const textLoad = () => {
       setTimeout(() => {
-        setText("Fullstack Developer");
+        setText("Fullstack Engineer");
       }, 4000);
       setTimeout(() => {
         setText("Website Developer");
       }, 8000);
+      setTimeout(() => {
+        setText("Software Engineer");
+      }, 12000);
     };
 
-    const interval = setInterval(textLoad, 8000);
+    const interval = setInterval(textLoad, 12000);
 
     return () => {
       clearInterval(interval);
