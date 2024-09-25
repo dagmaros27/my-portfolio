@@ -1,37 +1,32 @@
 import { Col, Row } from "antd";
-import React from "react";
 import ProjectCard from "./ProjectCard";
+import ScrollAnimation from "react-animate-on-scroll"; // Add this for animations
+
 const layoutStyle = {
-  "min-height": "80vh",
+  minHeight: "80vh",
   padding: "2rem",
 };
 
 const Projects = () => {
   return (
-    <div style={layoutStyle}>
-      <h1 style={{ color: "#7127ba" }}>Projects</h1>
+    <div style={layoutStyle} id="projects">
+      <h1 style={{ color: "#7127ba", textAlign: "center" }}>Projects</h1>
       <Row
-        className="projects"
-        style={{ display: "flex", justifyContent: "center", gap: "2rem" }}
+        gutter={[12, 24]} // Adds space between columns
+        justify="center"
+        style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}
       >
-        <Col flex={"30%"}>
-          <ProjectCard />
-        </Col>
-        <Col flex={"30%"}>
-          <ProjectCard />
-        </Col>
-        <Col flex={"30%"}>
-          <ProjectCard />
-        </Col>
-        <Col flex={"30%"}>
-          <ProjectCard />
-        </Col>
-        <Col flex={"30%"}>
-          <ProjectCard />
-        </Col>
-        <Col flex={"30%"}>
-          <ProjectCard />
-        </Col>
+        {[...Array(6)].map((_, index) => (
+          <Col key={index} xs={24} sm={24} md={12} lg={6} xl={6}>
+            <ScrollAnimation
+              animateIn="fadeInUp"
+              duration={1.5}
+              animateOnce={true}
+            >
+              <ProjectCard />
+            </ScrollAnimation>
+          </Col>
+        ))}
       </Row>
     </div>
   );

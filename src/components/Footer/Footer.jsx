@@ -1,5 +1,4 @@
 import Layout from "antd/es/layout/layout";
-import React from "react";
 
 const Footer = () => {
   const date = new Date();

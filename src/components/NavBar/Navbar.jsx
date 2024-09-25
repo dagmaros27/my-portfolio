@@ -1,73 +1,139 @@
-import React from "react";
-import { Col, Dropdown, Image, Layout, Menu, Row } from "antd";
+import { useState, useEffect } from "react";
+import { Menu, Drawer, Button, Image } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
+import "./Navbar.css";
+import { Link } from "react-scroll";
 import logo from "../../assets/Logo.png";
-import "./navbar.css";
-
-const headerStyle = {
-  height: "5rem",
-  borderRadius: "3rem",
-  margin: "0 2rem",
-  marginTop: "3rem",
-  padding: 0,
-};
 
 const menuItems = [
-  { key: "home", title: "Home" },
-  { key: "about", title: "About" },
-  { key: "resume", title: "Resume" },
-  { key: "projects", title: "Projects" },
-  { key: "contact", title: "Contact" },
+  { key: "home", title: "Home", link: "home" },
+  { key: "about", title: "About", link: "about" },
+  { key: "resume", title: "Resume", link: "resume" },
+  { key: "projects", title: "Projects", link: "projects" },
+  { key: "contact", title: "Contact", link: "contact" },
 ];
 
 const Navbar = () => {
+  const [visible, setVisible] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
+  };
+
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    if (scrollTop > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const renderMenuItems = () => {
     return menuItems.map((item) => (
       <Menu.Item key={item.key} style={{ color: "white" }}>
-        {item.title}
+        <Link
+          to={item.link}
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          style={{
+            color: "inherit",
+            textDecoration: "none",
+            cursor: "pointer",
+          }}
+        >
+          {item.title}
+        </Link>
       </Menu.Item>
     ));
   };
 
   return (
     <div className="header-wrapper">
-      <Layout.Header className="header" style={headerStyle}>
-        <Row justify="space between" align="middle">
-          <Col flex="auto" style={{ paddingLeft: "0.2rem" }}>
-            <div className="logo">
-              <Image
-                src={logo}
-                width={"5rem"}
-                height={"5rem"}
-                style={{ borderRadius: "2.5rem" }}
-                preview={false}
-              />
-            </div>
-          </Col>
-          <Col flex="auto">
+      <nav
+        className={`navbar ${scrolled ? "scrolled" : ""}`}
+        style={{ backgroundColor: scrolled ? "rgba(0, 0, 0, 0.7)" : "#000000" }}
+      >
+        <div className="navbar-container">
+          <div className="logo">
+            <Link
+              to="home"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <div className="logo">
+                <Image
+                  src={logo}
+                  width={"5rem"}
+                  height={"5rem"}
+                  style={{
+                    borderRadius: "2.5rem",
+                    cursor: "pointer",
+                  }}
+                  preview={false}
+                />
+              </div>
+            </Link>
+          </div>
+
+          <div className="desktop-menu">
             <Menu
               mode="horizontal"
-              className="menu"
               style={{
-                justifyContent: "center",
-                backgroundColor: "#1A0B2E",
-                color: "white",
+                backgroundColor: "transparent",
+                alignItems: "center",
               }}
             >
               {renderMenuItems()}
             </Menu>
-          </Col>
-          <Col flex="auto">
-            <Dropdown
-              menu={<Menu>{renderMenuItems()}</Menu>}
-              trigger={["hover"]}
-              placement="bottomRight"
-              className="dropdown"
+          </div>
+
+          <Button
+            className="mobile-menu-button"
+            type="primary"
+            onClick={showDrawer}
+          >
+            <MenuOutlined />
+          </Button>
+
+          {/* Drawer for Mobile Menu */}
+          <Drawer
+            title="Menu"
+            placement="right"
+            onClose={onClose}
+            open={visible}
+            style={{
+              backgroundColor: "#000000",
+              color: "white",
+            }}
+          >
+            <Menu
+              mode="vertical"
+              style={{
+                backgroundColor: "#000000",
+              }}
             >
-              <span style={{ color: "white" }}>Menu</span>
-            </Dropdown>
-          </Col>
-        </Row>
-      </Layout.Header>
+              {renderMenuItems()}
+            </Menu>
+          </Drawer>
+        </div>
+      </nav>
     </div>
   );
 };

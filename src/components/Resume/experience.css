@@ -2,3 +2,20 @@
   color: #7127ba !important;
   font-size: larger !important;
 }
+
+/* Custom styling for timeline */
+.vertical-timeline-element-content {
+  box-shadow: none !important;
+}
+
+.vertical-timeline-element-content-arrow {
+  border-right-color: #7127ba !important;
+}
+
+.vertical-timeline-element-date {
+  color: #7127ba !important;
+}
+
+.vertical-timeline-element-icon {
+  box-shadow: 0 0 0 4px #7127ba !important;
+}

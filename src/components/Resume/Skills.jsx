@@ -1,10 +1,10 @@
-import React from "react";
-import { Col, Row, Space } from "antd";
+import { Col, Row } from "antd";
 import {
   RiReactjsFill,
   RiJavascriptFill,
   RiHtml5Fill,
   RiCss3Fill,
+  RiFlutterFill,
 } from "react-icons/ri";
 import {
   SiExpress,
@@ -17,6 +17,7 @@ import { FaFigma, FaGitAlt, FaGithub, FaNode, FaPython } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import { BiLogoVisualStudio } from "react-icons/bi";
 import "./skills.css";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const iconSize = 72;
 const programmingLanguages = [
@@ -64,6 +65,10 @@ const programmingLanguages = [
     name: "Go",
     icon: <FaGolang size={iconSize} />,
   },
+  {
+    name: "Flutter",
+    icon: <RiFlutterFill size={iconSize} />,
+  },
 ];
 
 const tools = [
@@ -93,75 +98,80 @@ const Skills = () => {
   return (
     <div>
       <h1 style={{ color: "#7127ba" }}>Professional Skillset</h1>
-      <Row
-        style={{
-          marginBottom: "2rem",
-          display: "flex",
-        }}
-      >
-        {programmingLanguages.map((skill, index) => {
-          const key = `col-${index}`;
-          return (
-            <Col
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                padding: "1rem",
-                margin: "1rem",
-                border: "1px solid #7127ba",
-                backgroundColor: "#11071F",
-              }}
-              flex={"40%"}
-              key={key}
-              className="card"
-            >
-              <div className="icon">{skill.icon}</div>
-              <span>
-                {" "}
-                <strong style={{ fontSize: "1rem", color: "#7127ba" }}>
-                  {skill.name}
-                </strong>
-              </span>
-            </Col>
-          );
-        })}
-      </Row>
+      <ScrollAnimation animateIn="fadeInUp" duration={1.5} animateOnce={true}>
+        <Row
+          style={{
+            marginBottom: "2rem",
+            display: "flex",
+          }}
+        >
+          {programmingLanguages.map((skill, index) => {
+            const key = `col-${index}`;
+            return (
+              <Col
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  padding: "1rem",
+                  margin: "1rem",
+                  border: "1px solid #7127ba",
+                  backgroundColor: "#11071F",
+                }}
+                key={key}
+                flex={"40%"}
+                className="card"
+              >
+                <div className="icon">{skill.icon}</div>
+                <span>
+                  {" "}
+                  <strong style={{ fontSize: "1rem", color: "#7127ba" }}>
+                    {skill.name}
+                  </strong>
+                </span>
+              </Col>
+            );
+          })}
+        </Row>
+      </ScrollAnimation>
+
       <h2> Tools I use</h2>
-      <Row
-        style={{
-          marginBottom: "2rem",
-          display: "flex",
-        }}
-      >
-        {tools.map((skill, index) => {
-          const key = `col-${index}`;
-          return (
-            <Col
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                padding: "1rem",
-                margin: "1rem",
-                border: "1px solid #7127ba",
-                backgroundColor: "#11071F",
-              }}
-              span={12}
-              key={key}
-              className="card"
-            >
-              <div className="icon">{skill.icon}</div>
-              <span>
-                {" "}
-                <strong style={{ fontSize: "1rem", color: "#7127ba" }}>
-                  {skill.name}
-                </strong>
-              </span>
-            </Col>
-          );
-        })}
-      </Row>
+      <ScrollAnimation animateIn="fadeInUp" duration={1.5} animateOnce={true}>
+        <Row
+          style={{
+            marginBottom: "2rem",
+            display: "flex",
+          }}
+        >
+          {tools.map((skill, index) => {
+            const key = `col-${index}`;
+            return (
+              <Col
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  padding: "1rem",
+                  margin: "1rem",
+                  border: "1px solid #7127ba",
+                  backgroundColor: "#11071F",
+                }}
+                span={12}
+                key={key}
+                className="card"
+              >
+                <div className="icon">{skill.icon}</div>
+                <span>
+                  {" "}
+                  <strong style={{ fontSize: "1rem", color: "#7127ba" }}>
+                    {skill.name}
+                  </strong>
+                </span>
+              </Col>
+            );
+          })}
+        </Row>
+      </ScrollAnimation>
     </div>
   );
 };

@@ -7,6 +7,7 @@
   color: #7127ba;
   font-size: 30px;
   font-weight: 600;
+  white-space: nowrap;
 }
 .container .text.first-text {
   color: #fff;
@@ -108,8 +109,8 @@
 /* Added */
 .image-container {
   position: relative;
-  width: 100%; /* Adjusted to match the width of the blob */
-  height: 100%; /* Adjusted to match the height of the blob */
+  width: 100%;
+  height: 100%;
   z-index: 1; /* Added */
   overflow: hidden;
 }
@@ -120,4 +121,45 @@
   height: 100%;
   top: -4rem;
   object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  #hero {
+    min-height: 60vh;
+    margin-top: 2rem;
+  }
+
+  .container {
+    font-size: 1.5rem;
+  }
+
+  .image-container img {
+    width: 100%;
+  }
+}
+
+.container {
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  color: #333;
+}
+
+.gooey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.typewriter {
+  color: #7127ba;
 }

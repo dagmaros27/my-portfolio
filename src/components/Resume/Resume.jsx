@@ -1,4 +1,3 @@
-import React from "react";
 import Skills from "./Skills";
 import Experience from "./Experience";
 import { Space } from "antd";

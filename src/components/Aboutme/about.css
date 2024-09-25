@@ -1,5 +1,24 @@
-@media only screen and (max-width: 768px) {
+.personal-details-icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
   .about-image {
     display: none;
+  }
+
+  .personal-details-icon {
+    flex-direction: row;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1rem;
   }
 }

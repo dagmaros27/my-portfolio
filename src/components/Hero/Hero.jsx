@@ -1,41 +1,31 @@
-import { Col, Image, Layout, Row } from "antd";
-import React, { useEffect, useState } from "react";
+import { Col, Image, Row } from "antd";
 import hero from "../../assets/Hero.png";
 import "./hero.css";
+import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 
 const layoutStyle = {
   minHeight: "80vh",
   marginTop: "5rem",
 };
 
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+};
+
 const Hero = () => {
-  const [text, setText] = useState("Software Engineer");
-
-  useEffect(() => {
-    const textLoad = () => {
-      setTimeout(() => {
-        setText("Fullstack Engineer");
-      }, 4000);
-      setTimeout(() => {
-        setText("Website Developer");
-      }, 8000);
-      setTimeout(() => {
-        setText("Software Engineer");
-      }, 12000);
-    };
-
-    const interval = setInterval(textLoad, 12000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
   return (
-    <div style={layoutStyle}>
+    <div style={layoutStyle} id="hero">
       <Row>
         <Col
           md={10}
+          xs={24}
           style={{
             display: "flex",
             flexDirection: "column",
@@ -44,31 +34,59 @@ const Hero = () => {
             height: "80vh",
           }}
         >
-          <div style={{ width: "70%" }}>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInLeft}
+            style={{ width: "80%" }}
+          >
             <h1>Hello👋🏻</h1>
             <h1>
               <span style={{ color: "#7127BA" }}>Dagmawi Misker, here</span>
             </h1>
 
             <div className="container">
-              <span className="text first-text">I'm a </span> &nbsp;
-              <span className="text sec-text">{text}</span>
+              <span className="text first-text">I&apos;m a </span> &nbsp;
+              <span className="typewriter">
+                <Typewriter
+                  words={[
+                    "Full stack developer",
+                    "Software engineer",
+                    "Go developer",
+                    "MERN Specialist",
+                  ]}
+                  loop={false}
+                  cursorColor="#7127ba"
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </span>
             </div>
-          </div>
+          </motion.div>
         </Col>
+
         <Col
           md={14}
+          xs={24}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <div className="gooey">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInRight}
+            className="gooey"
+          >
             <div className="image-container">
               <Image src={hero} preview={false} />
             </div>
-          </div>
+          </motion.div>
         </Col>
       </Row>
     </div>
