@@ -1,5 +1,5 @@
 import { Col, Image, Row } from "antd";
-import hero from "../../assets/Hero.png";
+import hero from "../../assets/Images/Hero.png";
 import "./about.css";
 import { PiIdentificationBadgeFill } from "react-icons/pi";
 import { MdEmail } from "react-icons/md";
@@ -39,11 +39,11 @@ const Aboutme = () => {
         <ScrollAnimation animateIn="fadeInRight" animateOnce={true}>
           <h1 style={{ color: "#7127ba" }}>About Me</h1>
           <p>
-            I am a computer science graduate with an analytical mind and a
-            passion for problem solving. I take my education seriously, and
-            strive to learn as much as I can about the ever-changing field of
-            computer science. I love to challenge myself with difficult concepts
-            and tasks, especially when doing so helps me to expand my skill set.
+            I&apos;m a CS graduate aiming to become a Software Engineer,
+            passionate about coding and solving real-world problems. With a
+            strong interest in Machine Learning and AI, I’m excited to explore
+            how these technologies can enhance software development. Eager to
+            learn and grow, I’m ready to contribute to a dynamic team.
           </p>
 
           <h3>Personal details</h3>

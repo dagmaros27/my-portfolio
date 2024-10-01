@@ -3,7 +3,7 @@ import { Menu, Drawer, Button, Image } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import "./Navbar.css";
 import { Link } from "react-scroll";
-import logo from "../../assets/Logo.png";
+import logo from "../../assets/Images/Logo.png";
 
 const menuItems = [
   { key: "home", title: "Home", link: "home" },

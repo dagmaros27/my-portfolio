@@ -1,5 +1,5 @@
 import { Col, Image, Row } from "antd";
-import hero from "../../assets/Hero.png";
+import hero from "../../assets/Images/Hero.png";
 import "./hero.css";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";

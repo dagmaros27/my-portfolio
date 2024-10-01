@@ -22,7 +22,9 @@ const ExperienceCard = ({ experience }) => {
               color: "white",
             }}
           >
-            <span>{experience.position}</span>
+            <span>
+              <i>{experience.position}</i>
+            </span>
           </div>
         }
       />
