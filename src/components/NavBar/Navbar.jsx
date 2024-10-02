@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, Drawer, Button, Image } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
-import "./Navbar.css";
+import "./navbar.css";
 import { Link } from "react-scroll";
 import logo from "../../assets/Images/Logo.png";
 
